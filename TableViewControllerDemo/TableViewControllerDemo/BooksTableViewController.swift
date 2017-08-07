@@ -30,6 +30,7 @@ class BooksTableViewController: UITableViewController {
         if(aeBookVC != nil && !(aeBookVC?.isEditingBook)! && aeBookVC?.book != nil){
             lstBooks.append((aeBookVC?.book)!)
             bookTableView.reloadData()
+            aeBookVC = nil
         }
     }
     
