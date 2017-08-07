@@ -29,9 +29,9 @@ class BooksTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         if(aeBookVC != nil && !(aeBookVC?.isEditingBook)! && aeBookVC?.book != nil){
             lstBooks.append((aeBookVC?.book)!)
-            bookTableView.reloadData()
             aeBookVC = nil
         }
+        bookTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,10 +68,8 @@ class BooksTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "bookTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BookTableViewCell
-        let b = lstBooks[indexPath.row]
-        cell.book = b
+        cell.book = lstBooks[indexPath.row]
         // Configure the cell...
-
         return cell
     }
     

@@ -129,7 +129,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Book Details" id="mK2-h6-4cQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="x1d-h7-hyS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="x1d-h7-hyS">
+                            <connections>
+                                <segue destination="njw-D9-FET" kind="show" identifier="sgEditBook" id="wXr-Rg-C1M"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imgCover" destination="9jb-eh-LX6" id="KBW-Ye-5EM"/>
@@ -141,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZs-4F-ryT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1525.5999999999999" y="512.29385307346331"/>
+            <point key="canvasLocation" x="1530" y="618"/>
         </scene>
         <!--Add Book-->
         <scene sceneID="B7B-7a-rhf">
@@ -203,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QT1-lW-w5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1525.5999999999999" y="-133.5832083958021"/>
+            <point key="canvasLocation" x="2318" y="188"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cgE-mY-rNc">
@@ -222,4 +226,7 @@
             <point key="canvasLocation" x="-209" y="188"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wXr-Rg-C1M"/>
+    </inferredMetricsTieBreakers>
 </document>

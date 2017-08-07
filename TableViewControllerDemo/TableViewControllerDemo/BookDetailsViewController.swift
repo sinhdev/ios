@@ -22,19 +22,35 @@ class BookDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         if(book != nil){
-            imgCover.image = UIImage.init(named: (book?.cover)!)!
-            lblISBN.text = "ISBN: \(book?.isbn ?? "")"
-            lblTitle.text = book?.title
-            lblAuthor.text = "Author: \(book?.author ?? "")"
-            lblPrice.text = "Price: \(book?.price ?? 0) USD"
+            showBook()
         }
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        showBook()
+    }
+    private func showBook(){
+        imgCover.image = UIImage.init(named: (book?.cover)!)!
+        lblISBN.text = "ISBN: \(book?.isbn ?? "")"
+        lblTitle.text = book?.title
+        lblAuthor.text = "Author: \(book?.author ?? "")"
+        lblPrice.text = "Price: \(book?.price ?? 0) USD"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? ""){
+            case "sgEditBook":
+                let editView = segue.destination as? AddEditBookViewController
+                editView?.book = book
+            default:
+                print("no selected segue...")
+        }
+    }
 
     /*
     // MARK: - Navigation
