@@ -45,7 +45,7 @@ class AddEditBookViewController: UIViewController {
         book?.isbn = txtISBN.text!
         book?.title = txtTitle.text!
         book?.author = txtAuthor.text!
-        book?.price = Double(txtPrice.text!)!
+        book?.price = Double(txtPrice.text!) ?? 0
         self.navigationController?.popViewController(animated: false)
     }
 
