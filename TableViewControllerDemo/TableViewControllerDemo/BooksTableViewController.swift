@@ -10,7 +10,7 @@ import UIKit
 
 class BooksTableViewController: UITableViewController {
     private var lstBooks:[Book] = []
-    private var newBook:Book?
+    private var bookDetails:Book?
     private var aeBookVC:AddEditBookViewController?
 
     @IBOutlet var bookTableView: UITableView!
@@ -39,6 +39,9 @@ class BooksTableViewController: UITableViewController {
             case "sgAddBook":
                 aeBookVC = segue.destination as? AddEditBookViewController
                 aeBookVC?.isEditingBook = false
+            case "sgViewDetails":
+                let viewDetails = segue.destination as? BookDetailsViewController
+                viewDetails?.book = lstBooks[(bookTableView.indexPathForSelectedRow?.row)!]
             default:
                 print("no segue selection...")
         }
@@ -69,6 +72,12 @@ class BooksTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let indexSelected = bookTableView.indexPathForSelectedRow!
+//        bookDetails = lstBooks[indexPath.row]
+//        performSegue(withIdentifier: "sgViewDetails", sender: self)
     }
 
     /*
