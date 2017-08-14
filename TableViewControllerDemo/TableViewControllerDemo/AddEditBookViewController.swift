@@ -39,6 +39,28 @@ class AddEditBookViewController: UIViewController {
     }
     
     @IBAction func addEditBook(_ sender: UIBarButtonItem) {
+        //Valid book
+        let msg = UIAlertController(title: "Error...", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        msg.addAction(okAction)
+        if(txtISBN.text?.isEmpty)!{
+            msg.message = "ISBN is not blank!"
+            txtISBN.becomeFirstResponder()
+        }else if(txtTitle.text == ""){
+            msg.message = "Title is not blank!"
+            txtTitle.becomeFirstResponder()
+        }else if(txtAuthor.text == ""){
+            msg.message = "Author is not blank!"
+            txtAuthor.becomeFirstResponder()
+        }else if(txtPrice.text == ""){
+            msg.message = "Price is not blank!"
+            txtPrice.becomeFirstResponder()
+        }
+        if(msg.message != ""){
+            self.present(msg, animated: true, completion: nil)
+            return
+        }
+        
         if(book==nil){
             book = Book();
         }

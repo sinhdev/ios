@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TouchEventDemo/TouchEventDemo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:TableViewControllerDemo/TableViewControllerDemo.xcodeproj">
    </FileRef>
    <FileRef
