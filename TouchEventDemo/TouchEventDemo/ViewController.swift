@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     }
 
     func pinchGuestureAction(_ sender: UIPinchGestureRecognizer) {
-//        view.transform = view.transform.scaledBy(x: sender.scale, y: sender.scale)
         imgCover.transform = imgCover.transform.scaledBy(x: sender.scale, y: sender.scale)
     }
     
