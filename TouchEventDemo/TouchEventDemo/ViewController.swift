@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         imgTransform = imgCover.transform
-        
+    
         self.view.isUserInteractionEnabled = true
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapEvent)))
         self.view.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(pinchGuestureAction)))
@@ -27,11 +27,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func origineImage(_ sender: UIButton) {
-        imgCover.transform = imgTransform!
-    }
     func pinchGuestureAction(_ sender: UIPinchGestureRecognizer) {
-        imgCover.transform = imgCover.transform.scaledBy(x: sender.scale, y: sender.scale)
+        if sender.state == .began || sender.state == .changed {
+            imgCover.transform = imgCover.transform.scaledBy(x: sender.scale, y: sender.scale)
+        } else if sender.state == .ended {
+            imgCover.transform = imgTransform!
+        }
     }
     private var imgTransform:CGAffineTransform?
     
