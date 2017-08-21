@@ -1,15 +1,14 @@
 //
-//  ViewController.swift
+//  TouchGestureRecognizerViewController.swift
 //  TouchEventDemo
 //
-//  Created by Sinh NX on 8/14/17.
+//  Created by Sinh NX on 8/17/17.
 //  Copyright © 2017 Sinh NX. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class TouchGestureRecognizerViewController: UIViewController {
     @IBOutlet weak var imgCover: UIImageView!
     @IBOutlet weak var lblPosition: UILabel!
     @IBOutlet weak var lblTouch: UILabel!
@@ -17,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         imgTransform = imgCover.transform
-    
+        
         self.view.isUserInteractionEnabled = true
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapEvent)))
         self.view.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(pinchGuestureAction)))
@@ -26,7 +25,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func pinchGuestureAction(_ sender: UIPinchGestureRecognizer) {
         if sender.state == .began || sender.state == .changed {
             imgCover.transform = imgCover.transform.scaledBy(x: sender.scale, y: sender.scale)
@@ -47,9 +46,4 @@ class ViewController: UIViewController {
         t?.location(in: lblTouch)
         lblPosition.text = "x = \(t?.location(in: lblTouch).x ?? 0), y = \(t?.location(in: lblTouch).y ?? 0)"
     }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches{
-        }
-    }
 }
-
